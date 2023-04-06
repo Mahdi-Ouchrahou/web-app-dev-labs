@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2: HTML and CSS</title>
+    
+  
+    <style>
+        html {
+            background-color: #CF6766;
+        }
+        h1 {
+            font-size: 24px;
+            font-family: 'Trebuchet MS';
+            color: #031424;
+            text-align: center;
+            text-decoration-line: overline underline;
+            text-decoration-color: #031424;
+
+        }
+        h2 {
+            font-size: 18px;
+            font-family: Tahoma;
+            color: #30415D;
+            text-decoration-line: underline;
+            text-decoration-color: #30415D;
+        }
+        .list, p {
+            font-size: 12px;
+            font-family: Verdana;
+            color: white;
+        }
+
+        b {
+            background-color: #8eae8d;
+            opacity: 1;
+        }
+        img {
+            display: inline-block;
+        }
+
+        /* EXERCICE 5:*/
+        a:link {
+            text-decoration: none;
+            color: black;
+            opacity: 1;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p::first-letter {
+            font-size: calc(12px*1.5);
+        }
+
+       
+    </style>
+</head>
+
+
+<body>
+    <h1>About Mahdi Ouchrahou</h1>
+    <p>My name is Mahdi Ouchrahou, I am <b>curious</b>, <b>motivated</b> and <b>optimist</b>!</p>
+<hr>
+
+<h2>Classes I took during my bachelor</h2>
+    <ul class="list">
+        <li><i>CO-564:</i> Computer Networks</li>
+        <li><i>CO-562:</i> Operating Systems</li>
+        <li><i>CO-541:</i> Machine Learning</li>
+        <li><i>S23_CA-CS-804:</i> Web Application Development</li>
+    </ul>
+
+    
+
+    <h2>My favorite Books and TV shows</h2>
+    <p><i>(It is hard to compile only 3!)</i></p>
+
+        <dl class="list">
+            <dt>Books:</dt>
+            <dd>
+                <ol>
+                    <li>The alchemist (<a href="https://www.amazon.de/Alchemist-25th-Anniversary-Fable-Following/dp/0062355309/ref=asc_df_0062355309/?tag=googshopde-21&linkCode=df0&hvadid=310687609892&hvpos=&hvnetw=g&hvrand=9001189073294738476&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9060651&hvtargid=pla-301998303531&psc=1&th=1&psc=1&tag=&ref=&adgrpid=58559695621&hvpone=&hvptwo=&hvadid=310687609892&hvpos=&hvnetw=g&hvrand=9001189073294738476&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9060651&hvtargid=pla-301998303531" target="_blank">Amazon link</a>)</li>
+                    <li>This very instant (<a href="https://www.amazon.de/Linstant-pr%C3%A9sent-Guillaume-Musso/dp/2845637799" target="_blank">Amazon link</a>)</li>
+                    <li>The whisperer (<a href="https://www.amazon.com/Whisperer-Donato-Carrisi/dp/0349123446" target="_blank">Amazon link</a>)</li>
+                </ol>
+            </dd>
+            <dt>TV shows:</dt>
+            <dd>
+                <ol id="reverse">
+                    <li>"Mr. Robot" (<a href="https://www.amazon.de/gp/video/detail/0HG0RICE814W1S82Q14KRDZGCX?ref_=dvm_DE_sl_tit_mkw_skydoBs1hEg-dc&mrntrk=pcrid_517936557730_slid__pgrid_98563007402_pgeo_9060651_x__adext__ptid_kwd-826568740508&gclid=Cj0KCQjw8qmhBhClARIsANAtboeumldk4kPrTQxvZzI4qNuEIHEVKGj5IaqJauYMxS8Z6qLIKyu2StIaAvJYEALw_wcB&gclsrc=aw.ds" target="_blank">Amazon Link</a>)
+                    </li>
+                    <li>"Prison Break"(<a href="https://www.amazon.de/Prison-Break-Staffel-dt-OV/dp/B00ILGO33K" target="_blank">Amazon Link</a>)</li>
+                    <li>"Breaking bad" (<a href="https://www.amazon.com/Breaking-Bad-Season-1/dp/B0012QRPU4" target="_blank">Amazon Link</a>)</li>
+                </ol>
+            </dd>
+        </dl>
+    
+    
+    
+    <h2>My mood</h2>
+    <p class="image">
+        Happy: <img style="width:30%;" src="img/happy.jpeg" alt="Happy image">
+
+        Sad: <img style="width:30%;" src="img/sad.png" alt="Sad image">
+    </p>
+    
+
+    <h2>Fun fact about my neighbors</h2>
+        <ul class="list">
+            <li>Hannah: <i>Noisy</i> is what describes her the most.</li>
+            <li>Hnnes: <i>Cooking</i> is his vaforit activity.</li>
+        </ul>
+    
+<hr>
+
+
+<footer>
+    <p>Last edited by Mahdi Ouchrahou. 28 March 2023</p>
+    <p class="image">
+        <a href="http://jigsaw.w3.org/css-validator/" target="_blank">
+            <img src="img/vcss.gif" alt="Valid CSS!">
+        </a>
+    
+        <a href="http://validator.w3.org/" target="_blank">
+            <img  src="img/vhtml.gif" alt="HTML validated">
+        </a>
+    </p>
+</footer>
+
+</body>
+</html>
+
+<!--EXERCICE 5: The :hover and the :link pseudo-classes allowed to complete the first task. The second task was acheved using the ::first-letter pseudo-class and the calc() function.-->

@@ -1,7 +1,142 @@
-<html>
- <head>
- </head>
- <body>
-   <h1>Lab 1 <h1>
- </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App Dev - Lab 1</title>
+</head>
+<body>
+    <h1>TinyJumbo lightwight algorithm </h1>
+
+    <h2>Introduction:</h2>
+    <p> JAMBU is a lightweight authenticated encryption mode submitted to the CAESAR competition. JAMBU is the smallest block cipher authenticated encryption mode in the CAESAR competition, and it was selected to the Third Round of the competition. JAMBU has been presented at the NIST Lightweight Cryptography Workshop 2015. 
+    </p>
+    <p> TinyJAMBU mode, which is a small variant of the JAMBU mode, is based on a keyed permutation. TinyJambu is a lightweight cryptographic algorithm designed to provide security for low-power devices with limited resources such as Internet of Things (IoT) devices. It was proposed in 2018 by Guo et al. The state size of TinyJAMBU is only two thirds of that of JAMBU, the message block size of TinyJAMBU is half of that of JAMBU mode. When nonce is reused, TinyJAMBU provides better authentication security than JAMBU mode. The authentication security of TinyJAMBU mode is better than the Duplex mode when nonce is reused (for the same permutation size and message block size). 
+    </p>
+
+    <h2>Specifications:</h2> 
+    
+    <p>TinyJambu uses a lightweight 128-bit keyed permutation with no key schedule. The permutation is itself based on a 128-bit nonlinear feedback shift register. The keyed permutation supports three possible key sizes: 128 bits, 192 bits, 256 bits
+    
+    The algorithm is a type of a stream cipher that generates a keystream to encrypt the plaintext. It uses a permutation-based design that combines a nonlinear feedback shift register (NFSR) with a linear feedback shift register (LFSR) to generate the keystream. The keystream is then combined with the plaintext using an XOR operation to generate the ciphertext.
+    </p>
+    <p>
+    The TinyJambu algorithm is designed to provide both confidentiality and integrity of the data. It uses a truncated version of the Keccak permutation as a basis for its design, which provides a high level of security with a small footprint. The algorithm has been optimized for various platforms including 8-bit microcontrollers and can operate efficiently on low-power devices.
+    </p>
+    <p>The TinyJAMBU mode is shown in the image below. If the last block of the associated data (or plaintext) is not a full block , the length of the partial block (the
+    number of bytes) is xored to the state</p>
+    <img src="tinyjambu.png" alt="The TinyJAMBU mode for 128-bit state and keyed-permutations" width=50% align="center">
+    <br>
+
+    <h2>TinyJAMBU Variants</h2>
+    There exists many variants to the TinyJambu algorithm that provide different levels of security and efficiency depending on the platform and application requirements. The choice of the variant to use depends on the specific use case and the available resources of the device or platform.
+
+    The TinyJambu family includes three main variants, namely TinyJambu-128, TinyJambu-192, and TinyJambu-256, which differ in their block sizes and key sizes. we present in the table below the differences, specifications, advantages, and disadvantages of each variant of TinyJambu.
+
+    <table border="1" width="75%">
+        <colgroup>
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 30%;">
+
+        </colgroup>
+
+        <tbody>
+            <tr>
+                <th> TinyJunbo variants</th>
+                <th> Specifications</th>
+                <th> Advantages </th>
+                <th> disadvantages </th>
+            </tr>
+            <tr>
+                <td><i>TinyJambu-128</i></td>
+                <td>
+                    <ul>
+                        <li>Block size: 128 bits</li>
+                        <li>Key size: 128 bits</li>
+                        <li>Number of rounds: 40</li>
+                        <li>Security level: 128 bits</li>
+                        <li>Memory requirements: 16 words (64 bytes)</li>
+                        <li>CPU cycles per byte: 1.01</li>
+                    </ul>
+                </td>
+                <td>The small key size of 128 bits makes it suitable for applications with limited storage capacity.
+                TinyJambu-128 is very efficient and can be implemented on resource-constrained devices.
+                TinyJambu-128 provides a high level of security with a 128-bit security level.</td>
+                <td>The small block size of 128 bits limits its applicability for some applications.
+                The number of rounds required for encryption and authentication is relatively high, which may impact performance.</td>
+            </tr>
+            <tr>
+                <td><i>TinyJambu-192</i></td>
+                <td><ul>
+                    <li>Block size: 128 bits</li>
+                    <li>Key size: 192 bits</li>
+                    <li>Number of rounds: 56</li>
+                    <li>Security level: 192 bits</li>
+                    <li>Memory requirements: 24 words (96 bytes)</li>
+                    <li>CPU cycles per byte: 1.31</li>
+                </ul></td>
+                <td>The larger key size of 192 bits provides a higher level of security than TinyJambu-128.
+                TinyJambu-192 is still very efficient and can be implemented on resource-constrained devices.
+                The security level of 192 bits provides a good balance between security and efficiency</td>
+                <td>The larger key size of 192 bits may be more difficult to manage and store than the 128-bit key size of TinyJambu-128.
+                The increased number of rounds required for encryption and authentication may impact performance.</td>
+            </tr>
+            <tr>
+                <td><i>TinyJambu-256</i></td>
+                <td><ul>
+                    <li>Block size: 128 bits</li>
+                    <li>Key size: 256 bits</li>
+                    <li>Number of rounds: 72</li>
+                    <li>Security level: 256 bits</li>
+                    <li>Memory requirements: 32 words (128 bytes)</li>
+                    <li>CPU cycles per byte: 1.55</li>
+                </ul></td>
+                <td>The larger key size of 256 bits provides the highest level of security among the TinyJambu variants.
+                TinyJambu-256 is still efficient enough to be implemented on resource-constrained devices.
+                The security level of 256 bits is suitable for applications that require the highest level of security and confidentiality.</td>
+                <td>The larger key size of 256 bits may be more difficult to manage and store than the 128-bit and 192-bit key sizes of the other TinyJambu variants.
+                The increased number of rounds required for encryption and authentication may impact performance more significantly than the other TinyJambu variants.</td>
+            </tr>
+
+        </tbody>
+        
+    </table>
+
+    <h2>Security advantages:</h2>
+    <p>The TinyJambu algorithm provides security in several aspects such as confidentiality, integrity, authenticity, and resistance to attacks. Below are the security advantages of TinyJambu algorithm in each of these aspects:</p>
+    <ol>
+        <li><b>Confidentiality:</b>  Confidentiality is the ability to keep the data secret from unauthorized parties. TinyJambu algorithm provides confidentiality by encrypting the data using a key known only to the sender and the recipient. The encryption process scrambles the data in such a way that it is unreadable without the key. TinyJambu uses a combination of substitution-permutation network (SPN) and linear feedback shift registers (LFSRs) to provide confidentiality. SPN provides confusion by substituting plaintext bits with cipher bits, and LFSRs provide diffusion by shuffling the bits around in the ciphertext.</li>
+        <li><b>Integrity:</b>  Integrity is the ability to ensure that data has not been altered or corrupted during transmission. TinyJambu algorithm provides integrity by using a message authentication code (MAC) that is computed using the same key used for encryption. The MAC is computed by processing the message and the key through a hash function, which produces a fixed-length output. The MAC is appended to the ciphertext, and the recipient can verify the integrity of the message by recomputing the MAC using the same key and comparing it with the MAC in the ciphertext.</li>
+        <li> <b>Authenticity: </b> Authenticity is the ability to ensure that the message was sent by the claimed sender. TinyJambu algorithm provides authenticity by using a pre-shared key that is known only to the sender and the receiver. The key is used to generate a MAC, which is appended to the message to prove that the message was sent by the claimed sender. Only the receiver who possesses the same key can verify the MAC and authenticate the message.</li>
+        <li> <b>Resistance to attacks:</b>  TinyJambu algorithm is designed to be resistant to various types of attacks. It uses bit-slicing and constant-time implementations to prevent side-channel attacks, which exploit weaknesses in the physical implementation of the algorithm. It also uses SPN and LFSRs to provide confusion and diffusion, respectively, to prevent cryptanalysis attacks, which try to break the encryption by analyzing the algorithm. Additionally, TinyJambu supports a range of key sizes and block sizes, which allows for flexibility in choosing the appropriate level of security for a given use case.</li>
+
+    </ol>
+
+    <h2>Features :</h2>   
+    <p>The TinyJambu algorithm provides several features that makes it advantagous when used in constrained power devices, such as sensors, which have limited resources in terms of memory, processing power, and battery life. These features include:</p>
+
+    <ul>
+        <li><i>Lightweight:</i> The TinyJambu algorithm is designed to be lightweight, meaning it requires minimal processing power and memory resources. This makes it an ideal choice for use in constrained power devices such as sensors, where energy consumption and memory usage are critical factors. </li>
+        <li><i>Efficient: </i>The TinyJambu algorithm is designed to be efficient in terms of computation and communication overhead. This means that it can encrypt and authenticate data quickly and with minimal overhead, making it an ideal choice for use cases where real-time communication is required. </li>
+        <li><i>Secure: </i>The TinyJambu algorithm provides a high level of security despite its lightweight and efficient design. It uses a combination of cryptographic techniques, such as substitution-permutation networks (SPN), to ensure the confidentiality, integrity, and authenticity of the data transmitted between the devices. </li>
+        <li><i>Resistant to side-channel attacks: </i>  The TinyJambu algorithm is designed to be resistant to side-channel attacks, which are attacks that exploit weaknesses in the physical implementation of a cryptographic algorithm. The algorithm achieves this by using techniques such as bit-slicing and constant-time implementations, which make it difficult for attackers to extract sensitive information from the algorithm.</li>
+        <li><i>Key sizes: The TinyJambu algorithm offers a range of key sizes, from 128 bits to 256 bits, allowing for flexibility in choosing the appropriate level of security for a given use case. This means that it can be used in applications where higher security requirements are necessary.</i> </li>
+        <li><i>Block sizes: </i>The TinyJambu algorithm also offers a range of block sizes, from 64 bits to 128 bits, which allows for flexibility in choosing the appropriate block size for a given use case. This means that it can be used in applications where the size of the data being transmitted is a critical factor. </li>
+        <li><i>Open source: </i> The TinyJambu algorithm is open-source, which means that it can be freely used, modified, and distributed by anyone. This makes it an ideal choice for developers and researchers who want to experiment with and improve upon the algorithm.</li>
+    </ul>    
+    
+</body>
+<footer>
+    <p><i>Sources:</i> 
+    <ul>
+        <li><a href="https://csrc.nist.gov/CSRC/media/Projects/Lightweight-Cryptography/documents/round-1/spec-doc/TinyJAMBU-spec.pdf" target="_blank">TinyJAMBU: A Family of Lightweight Authenticated Encryption Algorithms </a></li>
+        <li><a href="https://csrc.nist.gov/CSRC/media/Projects/lightweight-cryptography/documents/finalist-round/updated-spec-doc/tinyjambu-spec-final.pdf" target="_blank">TinyJAMBU: A Family of Lightweight Authenticated Encryption Algorithms (Version 2) </a></li>
+        <li> <a href="https://eprint.iacr.org/2020/1045.pdf" target="_blank"> On the Security Margin of TinyJAMBU with Refined Differential and Linear Cryptanalysis</a></li>
+    </ul></p>
+</footer>
+<hr>
+<p>last update by Mahdi Ouchrahou, March 28, 2023</p>
 </html>
