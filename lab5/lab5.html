@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row1">
+            <h2>Box Size: </h2>
+            <div class="input-container">
+
+                <form id="form1">
+                    <label for="width">Width:</label>
+                    <input type="text" id="width" name="width">
+                    <label for="width">px</label>
+                    <label for="height">Height:</label>
+                    <input type="text" id="height" name="height">
+                    <label for="height">px</label>
+                    <input class="submit" type="submit" value="Set Width/Height">
+                </form>
+
+            </div>
+        </div>
+
+        <div class="row2">
+            <h2>Box border: </h2>
+            <div class="input-container">
+
+                <form id="form2">
+                    <label for="border">Border Width:</label>
+                    <input type="text" id="border" name="border">
+                    <label for="border">px </label>
+                    <input class="submit" type="submit" value="Set Border size">
+                </form>
+            </div>
+            <div class="list-container">
+                <ul>
+                    <li>Border color:</li>
+                    <li>
+                        <button class="bordercolor" tag="green" type="button">
+                            Green
+                        </button>
+                    </li>
+                    <li>
+                        <button class="bordercolor" tag="red" type="button">
+                            Red
+                        </button>
+                    </li>
+                    <li>
+                        <button class="bordercolor" tag="orange" type="button">
+                            Orange
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-container">
+                <ul>
+                    <li>Border style: </li>
+                    <li>
+                        <button class="borderstyle" type="button">
+                            Solid
+                        </button>
+                    </li>
+                    <li>
+                        <button class="borderstyle" type="button">
+                            Dotted
+                        </button>
+                    </li>
+                    <li>
+                        <button class="borderstyle" type="button">
+                            Dashed
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row3">
+            <h2>Box Background color: </h2>
+            <div class="list-container" id="wrap">
+                <ul>
+                    <li>Background color: </li>
+                    <li>
+                        <button tag="green" class="backgroundcolor" type="button">
+                            Green
+                        </button>
+                    </li>
+                    <li>
+                        <button tag="red" class="backgroundcolor" type="button">
+                            Red
+                        </button>
+                    </li>
+                    <li>
+                        <button tag="orange" class="backgroundcolor" type="button">
+                            Orange
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="experiment">
+
+    </div>
+    <br><br>
+</body>
+
+<script src="logic.js" type="text/javascript"></script>
+
+
+</html>
